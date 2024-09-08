@@ -1,0 +1,140 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.filter-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    margin-top: 40px;
+}
+
+.intro p {
+    font-size: 20px;
+}
+
+.photographers {
+    text-align: center;
+}
+
+.photographers h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.photographers-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photographer-card {
+    background-color: #fff;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+.photographer-card img {
+    width: 350px;
+    height: 300px;
+}
+
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.details .name {
+    font-size: 18px;
+    margin: 20px auto 0 20px;
+}
+
+.details .name-profession {
+    margin: 0 auto;
+}
+
+.page-actions {
+    display: flex;
+}
+
+/* Media Queries */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    .photographer-card {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .photographer-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .details .name {
+        font-size: 16px;
+        margin: 10px auto 0 10px;
+    }
+
+    .intro p {
+        font-size: 18px;
+    }
+
+    .photographers h4 {
+        font-size: 20px;
+    }
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+    .intro {
+        margin-top: 20px;
+    }
+
+    .intro p {
+        font-size: 16px;
+    }
+
+    .photographers h4 {
+        font-size: 18px;
+    }
+
+    .photographer-card {
+        width: 100%;
+        margin: 5px 0;
+        padding: 15px;
+    }
+
+    .photographer-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .details .name {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    .page-actions {
+        align-items: center;
+    }
+}

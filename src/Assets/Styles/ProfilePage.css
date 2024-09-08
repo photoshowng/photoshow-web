@@ -1,0 +1,74 @@
+.profile-container{
+    min-height: 82vh;
+}
+/* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .profile-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .profile-container h4 {
+        font-size: 20px;
+    }
+
+    .profile-field input {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .profile-field button {
+        width: 100%;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .profile-container {
+        width: 85%;
+        padding: 20px;
+    }
+
+    .profile-container h4 {
+        font-size: 22px;
+    }
+
+    .profile-field input {
+        width: 80%;
+    }
+
+    .profile-field button {
+        width: 80%;
+    }
+}
+
+/* Laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .profile-container {
+        width: 600px;
+        padding: 25px;
+    }
+
+    .profile-field input {
+        width: 70%;
+    }
+
+    .profile-field button {
+        width: 70%;
+    }
+}
+
+/* Desktops (1025px and above) */
+@media (min-width: 1025px) {
+    .profile-container {
+        width: 500px;
+    }
+
+    .profile-field input {
+        width: 60%;
+    }
+
+    .profile-field button {
+        width: auto;
+    }
+}
