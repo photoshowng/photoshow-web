@@ -5,6 +5,7 @@
     justify-content: center;
     margin: 0 auto;
     padding: 0;
+    margin-bottom: 90px;
 }
 
 .filter-section {
@@ -136,5 +137,9 @@
 
     .page-actions {
         align-items: center;
+    }
+
+    .filter-section {
+        flex-direction: column;
     }
 }

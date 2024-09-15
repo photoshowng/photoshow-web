@@ -7,6 +7,7 @@ import { getDownloadURL, uploadBytesResumable } from 'firebase/storage';
 import ForumIcon from '@material-ui/icons/Forum';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import { Send } from '@material-ui/icons';
+import "../Assets/Styles/Photographer.css"
 
 const useStyles = makeStyles((theme) => ({
     PostsPage: {
@@ -18,9 +19,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         overflow: 'hidden',
         position:'relative',
+        marginBottom: "110px",
+        [theme.breakpoints.down('sm')]: {
+            width: "75vw",
+        },
     },
     postActions: {
-        display: "flex"
+        display: "flex",
+        [theme.breakpoints.down('sm')]: {
+            width: "70vw",
+        },
     },
     heading: {
         margin: "15px auto",
@@ -54,7 +62,10 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: "20px 20px 40px 20px",
-        width: "150px"
+        width: "150px",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "10px",
+        },
     },
     posts: {
         width: "90%",
@@ -155,12 +166,16 @@ const PostsPage = ({data}) => {
     const [activeCommentPostId, setActiveCommentPostId] = useState(null); // Track which post's comments are being shown
 
     const classes = useStyles();
-    const photographer = data;
+    //const photographer = data;
+    const [photographer, setPhotographer] = useState([])
 
     useEffect(() => {
+        if (!data) return;
+            //const photographer = data;
+        setPhotographer(data)
         const postsArray = photographer?.posts ? Object.values(photographer.posts) : [];
         setPosts(postsArray);
-      }, [photographer])
+      }, [data, photographer])
 
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -284,7 +299,7 @@ const PostsPage = ({data}) => {
       
           //updateUserDataa(`Users/${data?.userId}`, newUserData);
           updateUserDataa(`Photographers/${photographer.id}/posts/${postId}`, newPhotographerData1);
-          updateUserDataa(`Photographers/${photographer.id}/${postsLiked}`, newPhotographerData2);
+          updateUserDataa(`Photographers/${photographer.id}`, newPhotographerData2);
         };
       
         const disLike = () => {      
@@ -444,17 +459,17 @@ const PostsPage = ({data}) => {
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                      endIcon={<ThumbUpIcon />}
+                    //   endIcon={<ThumbUpIcon />}
                       key={index}
-                      onClick={() => likePost(post.postId, index)}
+                      onClick={() => likePost(post.postId)}
                     >
-                      {data?.postsLiked?.includes(post.postId) ? `UnLike ${post?.postLikes?.length || 0}` : `Like ${post?.postLikes?.length || 0}`}
+                      {photographer?.postsLiked?.includes(post.postId) ? `UnLike ${post?.postLikes?.length || 0}` : `Like ${post?.postLikes?.length || 0}`}
                     </Button>
                     <Button
                       variant="contained"
                       color="primary"
                       className={classes.button}
-                      endIcon={<ForumIcon />}
+                    //   endIcon={<ForumIcon />}
                       onClick={() => showCommentPopupWindow(post.postId)}
                     >
                       Comment

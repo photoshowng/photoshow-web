@@ -12,9 +12,10 @@ const Footer = () => {
 
   return (
     <div className='footer'>
-        <p>© 2024 Photoshow. All rights reserved.</p>
+        <p>© 2024 Photoshow.</p>
+        {/* <p>All rights reserved.</p> */}
         <div class="social-icons">
-            <Link href="https://www.example.com" 
+            <Link href="https://wa.me/08062448758" 
               underline="none" 
               color="primary"
               target="_blank"
@@ -23,7 +24,7 @@ const Footer = () => {
                 <WhatsAppIcon />
             </Link>
             <Link 
-              href="https://www.example.com" 
+              href="https://www.facebook.com/" 
               underline="none" 
               color="primary"
               target="_blank"
@@ -31,7 +32,7 @@ const Footer = () => {
               className='icon'>
                 <FacebookIcon />
             </Link>
-            <Link href="https://www.example.com" 
+            <Link href="https://twitter.com/" 
               underline="none" 
               color="primary"
               target="_blank"
@@ -39,7 +40,7 @@ const Footer = () => {
               className='icon'>
                 <TwitterIcon />
             </Link>
-            <Link href="https://www.example.com" 
+            <Link href="https://www.instagram.com/" 
               underline="none" 
               color="primary"
               target="_blank"
@@ -47,7 +48,7 @@ const Footer = () => {
               className='icon'>
                 <InstagramIcon />
             </Link>
-            <Link href="https://www.example.com" 
+            <Link href="https://www.youtube.com/c/" 
               underline="none" 
               color="primary"
               target="_blank"
@@ -55,7 +56,7 @@ const Footer = () => {
               className='icon'>
                 <YouTubeIcon />
             </Link>
-            <Link href="https://www.example.com" 
+            <Link href="https://www.linkedin.com/in/" 
               underline="none" 
               color="primary"
               target="_blank"

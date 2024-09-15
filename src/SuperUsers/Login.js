@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, database } from '../Firebase';
 import { onValue, ref } from 'firebase/database';
+import logo from "../Assets/Images/logo.png"
+
 
 const useStyles = makeStyles((theme) => ({
     SignUpPage: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: "50%",
-        backgroundColor: "#fff",
+        //backgroundColor: "#fff",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -32,6 +34,13 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "20px",
         borderRadius: "15px",
         position: "relative",
+        [theme.breakpoints.down('sm')]: {
+          width: "90%",
+        },
+    },
+    logo: {
+      width: "200px",
+      height: "200px",
     },
     inputs: {
         width: "100%",
@@ -133,6 +142,7 @@ const Login = () => {
 
   return (
     <div className={classes.SignUpPage}>
+      <img src={logo} alt='Photoshow' className={classes.logo} />
       {showForgotPasswordPopup ? showNotification ? <div className={classes.notification}>
         <CloseIcon className={classes.closeIcon} onClick={() => setShowNotification(false)}/>
         <p>Email Sent Successfully</p>

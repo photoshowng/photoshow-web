@@ -10,6 +10,7 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 90px;
 }
 
 .about-page h4 {
@@ -80,4 +81,28 @@ img {
     font-weight: 600;
     color: #3248a8;
     cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .about-page {
+        width: 100%;
+    }
+    .about-page p {
+        font-size: 15px;
+    }
+    .developers {
+        width: 95%;
+    }
+    .developer-card img {
+        width: 150px;
+        height: 200px;
+    }
+    
+    .developer-card img:hover {
+        transform: scale(1.2, 1.05);
+    }
+
+    .developer-card p {
+        margin: 5px 10px;
+    }
 }

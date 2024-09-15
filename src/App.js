@@ -23,6 +23,7 @@ import Dashboard from './SuperUsers/Dashboard';
 import AboutUs from './Pages/AboutUs';
 import SuperPrivateRoute from './Components/SuperPrivateRoute';
 import AuthenticationPage from './Components/AuthenticationPage';
+import AboutPage from './Pages/AboutPage';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false)
@@ -57,7 +58,7 @@ function App() {
           <Route exact path="/super/register" element={<Signup />} />
           <Route exact path="/super/login" element={<Login />} />
           <Route exact path="/welcome" element={<WelcomePage />} />
-          <Route exact path="/about-us" element={<AboutUs />} />
+          <Route exact path="/about-us" element={<AboutPage />} />
         </Routes>
       </DataProvider>
     </AuthProvider>

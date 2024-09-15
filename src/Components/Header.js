@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    //backgroundColor: "#f59a10",
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -107,6 +108,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
     [theme.breakpoints.down('xs')]: {
       padding: theme.spacing(2),
+      width: "80%",
     },
   },
   downLinks: {

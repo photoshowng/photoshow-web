@@ -5,6 +5,7 @@ import { auth, database, getDb } from '../Firebase';
 import { ref, set } from 'firebase/database';
 import registerUser from '../Auth/AuthSignup';
 import { useNavigate } from 'react-router-dom';
+import logo from "../Assets/Images/logo.png"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,13 +26,16 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: "50%",
-        backgroundColor: "#fff",
+        //backgroundColor: "#fff",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         marginBottom: "20px",
-        borderRadius: "15px"
+        borderRadius: "15px",
+        [theme.breakpoints.down('sm')]: {
+          width: "90%",
+        },
     },
     inputs: {
         width: "100%",
@@ -56,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
         padding: 0,
         margin: 0,
         textDecoration: "none"
+    },
+    logo: {
+      width: "200px",
+      height: "200px",
     },
   }));
 
@@ -96,6 +104,7 @@ const SignUpPage = () => {
 
   return (
     <div className={classes.SignUpPage}>
+      <img src={logo} alt='Photoshow' className={classes.logo} />
       <form className={classes.form} onSubmit={handleSignUp}>
         <Typography variant="h4" align="center" gutterBottom className={classes.heading}>
             Signup

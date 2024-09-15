@@ -15,14 +15,21 @@
 }
 
 .footer {
+    width: 100%;
     background-color: #3248a8;
     color: #fff;
-    padding: 20px;
     text-align: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .footer p {
-    margin: 0;
+    margin: 0 ;
 }
 
 .footer a {
@@ -36,4 +43,10 @@
 
 .icon {
     margin: 5px;
+}
+
+@media (max-width: 480px) {
+    .footer {
+        width: 90%;
+    }
 }

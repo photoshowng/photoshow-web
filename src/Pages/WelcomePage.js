@@ -1,6 +1,8 @@
 import { AppBar, Box, Button, Container, Link, Toolbar, Typography, makeStyles } from '@material-ui/core'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom';
+import AdComponent from '../Components/AdComponent';
+import logo from "../Assets/Images/logo.png"
 
 
 const useStyles = makeStyles((theme) => ({
@@ -10,21 +12,55 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
       marginBottom: theme.spacing(4),
     },
+    toolbar: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
     title: {
       flexGrow: 1,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "14px",
+        display: "none",
+      },
+    },
+    logo: {
+      display: "none",
+      [theme.breakpoints.down('sm')]: {
+        display: "block",
+        width: "80px",
+        height: "70px",
+        marginLeft: "-30px",
+      },
     },
     heroContent: {
       padding: theme.spacing(8, 0, 6),
     },
     heroButtons: {
       marginTop: theme.spacing(4),
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: "column",
+      },
     },
     footer: {
       marginTop: theme.spacing(4),
       padding: theme.spacing(6, 0),
+    },
+    link: {
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "11px",
+      },
+    },
+    welcome : {
+      [theme.breakpoints.down('sm')]: {
+        padding: "10px"
+      },
     },
   }));
 
@@ -33,16 +69,19 @@ const WelcomePage = () => {
   return (
     <div>
         <AppBar position="static" className={classes.appBar}>
-            <Toolbar>
-                <Typography variant="h6" className={classes.title}>
-                PhotoShow
-                </Typography>
-                <Button color="inherit" component={RouterLink} to="/home">Home</Button>
-                <Button color="inherit" component={RouterLink} to="/photograhers">Photograhers</Button>
-                <Button color="inherit" component={RouterLink} to="/about-us">About Us</Button>
+            <Toolbar className={classes.toolbar}>
+              <Typography variant="h6" className={classes.title}>
+              PhotoShow
+              </Typography>
+              <img src={logo} alt='logo' className={classes.logo}/>
+              <div>
+                <Button color="inherit" component={RouterLink} to="/home" className={classes.link}>Home</Button>
+                <Button color="inherit" component={RouterLink} to="/photograhers" className={classes.link}>Photograhers</Button>
+                <Button color="inherit" component={RouterLink} to="/about-us" className={classes.link}>About Us</Button>
+              </div>
             </Toolbar>
         </AppBar>
-       <main>
+       <main className={classes.welcome}>
         <Container maxWidth="sm" component="main" className={classes.heroContent}>
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
             Welcome to PhotoShow
@@ -50,16 +89,15 @@ const WelcomePage = () => {
           <Typography variant="h5" align="center" color="textSecondary" paragraph>
             Discover amazing photos from talented photographers around the world.
           </Typography>
-          <div className={classes.heroButtons}>
-            <Box display="flex" justifyContent="center">
-              <Button variant="contained" color="primary" component={RouterLink} to="/authentication">
+          <AdComponent />
+            <Box className={classes.heroButtons}>
+              <Button style={{margin: "10px"}} variant="contained" color="primary" component={RouterLink} to="/authentication">
                 Explore Photograhers
               </Button>
-              <Button variant="outlined" color="primary" component={RouterLink} to="/about-us" style={{ marginLeft: '10px' }}>
+              <Button style={{margin: "10px"}} variant="outlined" color="primary" component={RouterLink} to="/about-us">
                 About Us
               </Button>
             </Box>
-          </div>
         </Container>
       </main>
       <footer className={classes.footer}>

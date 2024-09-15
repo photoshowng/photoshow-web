@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { push, ref, set } from 'firebase/database';
 import { auth, database, storage, storeRef } from '../Firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { getDownloadURL, uploadBytesResumable } from 'firebase/storage';;
+import { getDownloadURL, uploadBytesResumable } from 'firebase/storage';
+import logo from "../Assets/Images/logo.png"
 
 // Mock list of programs
 const programs = [
@@ -37,13 +38,20 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: "50%",
-        backgroundColor: "#fff",
+        //backgroundColor: "#fff",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         marginBottom: "20px",
-        borderRadius: "15px"
+        borderRadius: "15px",
+        [theme.breakpoints.down('sm')]: {
+          width: "90%",
+        },
+    },
+    logo: {
+      width: "200px",
+      height: "200px",
     },
     inputs: {
         width: "100%",
@@ -166,7 +174,7 @@ const Signup = () => {
             likers: {},
             posts: {},
             role: "super",
-            programmes: selectedPrograms,
+            events: selectedPrograms,
             createdAt: new Date().toISOString(),  // Store date as ISO string
          }  
       
@@ -217,9 +225,7 @@ const Signup = () => {
 
   return (
     <div className={classes.SignUpPage}>
-        <Typography variant="h4" align="center" gutterBottom className={classes.heading}>
-            Add Logo
-        </Typography>
+      <img src={logo} alt='Photoshow' className={classes.logo} />
       <form className={classes.form} onSubmit={handleSignUp}>
         <Typography variant="h4" align="center" gutterBottom className={classes.heading}>
             Add Photographer

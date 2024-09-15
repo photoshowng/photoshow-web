@@ -7,6 +7,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, database } from '../Firebase';
 import { useData } from '../Context/DataContext';
 import { onValue, ref } from 'firebase/database';
+import logo from "../Assets/Images/logo.png"
+// import Alertt from '../Components/Alert';
 
 const useStyles = makeStyles((theme) => ({
     SignUpPage: {
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
         width: "50%",
-        backgroundColor: "#fff",
+        //backgroundColor: "#fff",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "20px",
         borderRadius: "15px",
         position: "relative",
+        [theme.breakpoints.down('sm')]: {
+          width: "90%",
+        },
     },
     inputs: {
         width: "100%",
@@ -81,7 +86,14 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "20px",
         borderRadius: "15px",
         position: "relative",
-    }
+        [theme.breakpoints.down('sm')]: {
+          width: "90%",
+        },
+    },
+    logo: {
+      width: "200px",
+      height: "200px",
+    },
   }));
 
 const LoginPage = () => {
@@ -138,16 +150,19 @@ const LoginPage = () => {
 
   return (
     <div className={classes.SignUpPage}>
+        <img src={logo} alt='Photoshow' className={classes.logo} />
       {showForgotPasswordPopup ? showNotification ? <div className={classes.notification}>
         <CloseIcon className={classes.closeIcon} onClick={() => setShowNotification(false)}/>
-        <p>Email Sent Successfully</p>
-        <p>Check It In Your SPAM Folder If You Can't find it in Primary</p>
+        {/* <p>Email Sent Successfully</p>
+        <p>Check It In Your SPAM Folder If You Can't find it in Primary</p> */}
+        <p style={{marginTop: "40px"}}>COMING SOON!!!</p>
+        <p style={{padding: "20px"}}>Contact customer support to reset your Password</p>
       </div> : <form className={classes.form}>
         <CloseIcon className={classes.closeIcon} onClick={() => setShowForgotPasswordPopup(false)}/>
         <Typography variant="h4" align="center" gutterBottom className={classes.heading}>
             Reset Password
         </Typography>
-        <p style={{margin: "0 0 10px 0", padding: 0, textTransform: "capitalize"}}>Enter your registered email address to recieve password reset Link</p>
+        <p style={{margin: "0 0 10px 0", padding: "5px", textTransform: "capitalize"}}>Enter your registered email address to recieve password reset Link</p>
         <div className={classes.inputs}>
             <TextField
               variant="outlined"

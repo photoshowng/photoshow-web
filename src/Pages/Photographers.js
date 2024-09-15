@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#007bff',
     },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "10px",
+      padding: "15px",
+    },
   },
 }));
 
@@ -230,7 +234,7 @@ const Photographers = () => {
                       endIcon={<ThumbUpIcon />}
                       onClick={() => likePage(photographer)}
                     >
-                      Like {photographer.likers ? photographer.likers.length : 0}
+                     {photographer.likers ? photographer.likers.length : 0}
                     </Button>
                     <Button
                       variant="contained"

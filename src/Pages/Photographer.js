@@ -21,6 +21,21 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: '#007bff',
     },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "10px",
+      width: "100px",
+    },
+  },
+  button2: {
+    margin: theme.spacing(2),
+    backgroundColor: '#3248a8',
+    '&:hover': {
+      backgroundColor: '#007bff',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "10px",
+      width: "100px",
+    },
   },
   replyBtn: {
     margin: theme.spacing(2),
@@ -216,7 +231,8 @@ const Photographer = () => {
   };
 
   const toFacebook = () => {
-    const facebookUrl = 'https://www.facebook.com/ajbindawa';
+    const facebookLink = photographer?.facebookLink;
+    const facebookUrl = `https://www.facebook.com/${facebookLink}`;
     window.open(facebookUrl, '_blank');
   };
 
@@ -360,9 +376,10 @@ const getReplies = (postId, commentId) => {
           <h4>{photographer?.userName}</h4>
           <h5>{photographer?.location}</h5>
           <p>{photographer?.userEmail}</p>
+          <h5 className='sm-followers'>Followers ({photographer?.followers?.length || 0})</h5>
         </div>
         <div className='photographer-actions'>
-          <h5>Followers ({photographer?.followers?.length || 0})</h5>
+          <h5 className='lg-followers'>Followers ({photographer?.followers?.length || 0})</h5>
           <Button
             variant="contained"
             color="primary"
@@ -397,8 +414,8 @@ const getReplies = (postId, commentId) => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className={classes.button}
-                  endIcon={<ThumbUpIcon />}
+                  className={classes.button2}
+                  // endIcon={<ThumbUpIcon />}
                   onClick={() => likePost(post.postId, index)}
                 >
                   {data?.postsLiked?.includes(post.postId) ? `UnLike ${post?.postLikes?.length || 0}` : `Like ${post?.postLikes?.length || 0}`}
@@ -406,7 +423,7 @@ const getReplies = (postId, commentId) => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className={classes.button}
+                  className={classes.button2}
                   endIcon={<ForumIcon />}
                   onClick={() => showCommentPopupWindow(post.postId)}
                 >

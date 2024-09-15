@@ -7,6 +7,7 @@ import { updateSpecificFields } from '../DataOperations';
 import { ref, update } from 'firebase/database';
 import { database, handleLogout } from '../Firebase';
 import { getAuth, reauthenticateWithCredential, updatePassword, EmailAuthProvider } from 'firebase/auth';
+import AdComponent from '../Components/AdComponent';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -117,6 +118,7 @@ const Profile = () => {
   return (
     <div className='profile'>
       <div className="profile-container" >
+        <AdComponent />
         <h4>My Profile</h4>
         <div className="profile-info">
           <p>Email: {userEmail}</p>
@@ -128,8 +130,12 @@ const Profile = () => {
             value={userNameText} 
             disabled={isDisabled} 
             onChange={(e) => setUserNameText(e.target.value)}/>
-            <button value={buttonValue} onClick={editInput}>{isDisabled ? 'Edit' : 'Save'}</button>
           </div>
+          <Button variant="contained"
+            color="primary"
+            className={classes.button} 
+            value={buttonValue} 
+            onClick={editInput}>{isDisabled ? 'Edit' : 'Save'}</Button>
           {showEditPasswordButton && <Button
             variant="contained"
             color="primary"

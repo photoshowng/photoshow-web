@@ -5,7 +5,7 @@
     justify-content: center;
     margin: 0 auto;
     padding: 20px 10px;
-    margin-bottom: 30px;
+    margin-bottom: 90px;
     position: relative;
     min-height: 100vh;
 }
@@ -242,6 +242,12 @@
     box-shadow: 1px 2px #ddd;
 }
 
+@media (max-width: 480px) {
+    .comment {
+        width: 85%;
+    }
+}
+
 .comment p {
 }
 
@@ -262,4 +268,90 @@
     right: 10px;
     font-size: 12px;
     margin-bottom: -5px;
+}
+
+.lg-followers {
+    display: block;
+    font-size: 16px;
+}
+
+.sm-followers {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .main {
+        width: 100%;
+    }
+
+    .photographer-info {
+        width: 100%;
+        margin-left: -30px;
+    }
+
+    .hero-img {
+        width: 90%;
+        height: 130px;
+    }
+
+    .photographer-posts {
+        width: 100%;
+        margin-left: -30px
+    }
+
+    .post {
+        width: 100%;
+    }
+
+    .post-img {
+        width: 95%;
+        height: 250px;
+    }
+
+    .post-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .image-container {
+        width: 100px;
+        height: 100px;
+        margin-top: -70px;
+    }
+
+    .sub-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .photographer-details {
+        width: 90%;
+        font-size: 16px;
+    }
+    .photographer-details h4,h5,p {
+        font-size: 16px;
+    }
+    .photographer-actions {
+        width: 90%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .photographer-actions h5 {
+        font-size: 8px;
+    }
+
+    .lg-followers {
+        display: none;
+    }
+
+    .sm-followers {
+        display: block;
+        font-size: 12px;
+    }
+
+    .comment-form {
+        flex-direction: column;
+    }
 }
